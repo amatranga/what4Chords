@@ -32,8 +32,9 @@ class WhatFourChords extends React.Component {
       .then(res => {
         res.json()
         .then(data => {
+          console.log(data);
           if (data.objects.length) {
-            const info = data.objects[1];
+            const info = data.objects[0];
             let author = info.authors[0].name;
             let chords = info.chords;
             let title = info.title;
