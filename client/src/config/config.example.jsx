@@ -1,0 +1,3 @@
+const GUITARPARTY_API_KEY = 'YOUR_API_KEY';
+
+export default GUITARPARTY_API_KEY;
