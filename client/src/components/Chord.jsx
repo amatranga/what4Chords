@@ -2,9 +2,9 @@ import React from 'react';
 
 const Chord = props => {
   return (
-    <div>
-      {props.chord}
-    </div>
+    <li>
+      {props.chord.name}
+    </li>
   );
 }
 

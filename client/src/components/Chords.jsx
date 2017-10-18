@@ -4,18 +4,19 @@ import Chord from './Chord';
 const Chords = props => {
   return (
     <div className="col-sm-12 text-center">
-      <div>
+      <h2>
         {props.title}
-      </div>
-      <div>
+      </h2>
+      <h4>
         {props.author}
-      </div>
+      </h4>
       <hr />
       <div>
-        Hello
-        {props.chords.map((chord, idx) => {
-          <Chord key={idx} chord={chord} />
-        })}
+        <ul style={{'listStyle':'none'}}>
+          {props.chords.map((chord, idx) =>
+            <Chord key={idx} chord={chord} />
+          )}
+        </ul>
       </div>
     </div>
   );
