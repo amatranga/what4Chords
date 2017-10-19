@@ -8,8 +8,8 @@ class WhatFourChords extends React.Component {
     super();
     this.state = {
       query: '',
-      title: '',
-      author: '',
+      titles: [],
+      authors: [],
       chords: []
     }
 
@@ -34,16 +34,20 @@ class WhatFourChords extends React.Component {
         .then(data => {
           console.log(data);
           if (data.objects.length) {
-            const info = data.objects[0];
-            let author = info.authors[0].name;
-            let chords = info.chords;
-            let title = info.title;
-            this.setState({author, chords, title});
-          } else {
-            let author = 'Try another search';
+            let authors = [];
             let chords = [];
-            let title = 'Not found';
-            this.setState({author, chords, title});
+            let titles = [];
+            data.objects.map((obj, i) => {
+              authors.push(obj[0].name);
+              chords.push(obj.chords);
+              titles.push(obj.title);
+            });
+            this.setState({authors, chords, titles});
+          } else {
+            let authors = [];
+            let chords = [];
+            let titles = [];
+            this.setState({authors, chords, titles});
           }
         });
       })
@@ -59,7 +63,7 @@ class WhatFourChords extends React.Component {
           <div className="col-sm-12 justify-content-center">
             <SearchBar handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
           </div>
-          <Chords author={this.state.author} title={this.state.title} chords={this.state.chords} />
+          <Chords authors={this.state.authors} titles={this.state.titles} chords={this.state.chords} />
         </div>
       </div>
     );
