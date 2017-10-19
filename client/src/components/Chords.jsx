@@ -5,10 +5,10 @@ const Chords = props => {
   return (
     <div className="col-sm-12 text-center">
       <h2>
-        {props.title}
+        {props.titles}
       </h2>
       <h4>
-        {props.author}
+        {props.authors}
       </h4>
       <hr />
       <div>
